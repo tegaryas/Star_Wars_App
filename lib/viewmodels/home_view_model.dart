@@ -16,10 +16,10 @@ class HomeViewModel extends GetxController {
     getAllData();
   }
 
-  // setChangeView() {
-  //   changeView = !changeView;
-  //   update();
-  // }
+  void setChangeView() {
+    changeView.value = !changeView.value;
+    update();
+  }
 
   void getAllData() async {
     _loading.value = true;

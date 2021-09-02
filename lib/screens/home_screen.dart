@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:path/path.dart';
 import 'package:starwars_app/screens/detail_screen.dart';
 import 'package:starwars_app/theme.dart/text_style.dart';
 import 'package:starwars_app/viewmodels/home_view_model.dart';
@@ -58,9 +59,13 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                   Spacer(),
                                   GestureDetector(
-                                    onTap: () {},
+                                    onTap: () {
+                                      controller.setChangeView();
+                                    },
                                     child: Icon(
-                                      Icons.grid_view,
+                                      controller.changeView == true
+                                          ? Icons.sort_rounded
+                                          : Icons.grid_view,
                                       size: 25,
                                     ),
                                   ),
@@ -69,9 +74,10 @@ class HomeScreen extends StatelessWidget {
                               SizedBox(
                                 height: 20,
                               ),
-                              _gridViewList(),
-
-                              // _listViewProduct(),
+                              // ignore: unrelated_type_equality_checks
+                              controller.changeView == true
+                                  ? _gridViewList()
+                                  : _buildCard(),
                             ],
                           ),
                         ),
@@ -81,6 +87,55 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
+    );
+  }
+
+  Widget _buildCard() {
+    return GetBuilder<HomeViewModel>(
+      builder: (controller) => ListView.builder(
+        shrinkWrap: true,
+        itemCount: controller.peopleListModel.length,
+        itemBuilder: (context, index) {
+          var people = controller.peopleListModel[index];
+          return Container(
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          people.name,
+                          style: titleTextStyle,
+                        ),
+                        SizedBox(
+                          height: 2,
+                        ),
+                        Text(
+                          people.gender,
+                          style: subtitleTextStyle.copyWith(
+                            color: Colors.black45,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Spacer(),
+                    Icon(
+                      Icons.keyboard_arrow_right,
+                      size: 25,
+                    )
+                  ],
+                ),
+                Divider(
+                  thickness: 1,
+                  height: 30,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 
@@ -184,45 +239,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-// Widget _buildCard() {
-  //   return Container(
-  //     margin: EdgeInsets.symmetric(
-  //       horizontal: 20,
-  //     ),
-  //     child: Column(
-  //       children: [
-  //         Row(
-  //           children: [
-  //             Column(
-  //               crossAxisAlignment: CrossAxisAlignment.start,
-  //               children: [
-  //                 Text(
-  //                   'Luke SkyWalker',
-  //                   style: titleTextStyle,
-  //                 ),
-  //                 SizedBox(
-  //                   height: 2,
-  //                 ),
-  //                 Text(
-  //                   'Human from Tatoonie',
-  //                   style: subtitleTextStyle.copyWith(
-  //                     color: Colors.black45,
-  //                   ),
-  //                 ),
-  //               ],
-  //             ),
-  //             Spacer(),
-  //             Icon(
-  //               Icons.keyboard_arrow_right,
-  //               size: 25,
-  //             )
-  //           ],
-  //         ),
-  //         Divider(
-  //           thickness: 1,
-  //           height: 30,
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
