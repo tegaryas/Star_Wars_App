@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:path/path.dart';
 import 'package:starwars_app/screens/detail_screen.dart';
 import 'package:starwars_app/theme.dart/text_style.dart';
 import 'package:starwars_app/viewmodels/home_view_model.dart';
@@ -63,6 +62,7 @@ class HomeScreen extends StatelessWidget {
                                       controller.setChangeView();
                                     },
                                     child: Icon(
+                                      // ignore: unrelated_type_equality_checks
                                       controller.changeView == true
                                           ? Icons.sort_rounded
                                           : Icons.grid_view,

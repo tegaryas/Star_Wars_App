@@ -49,6 +49,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                 controller.setChangeView();
                               },
                               child: Icon(
+                                // ignore: unrelated_type_equality_checks
                                 controller.changeView == true
                                     ? Icons.sort_rounded
                                     : Icons.grid_view,
