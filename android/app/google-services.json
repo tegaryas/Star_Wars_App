@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "923126909996",
+    "project_id": "starwars-3ffad",
+    "storage_bucket": "starwars-3ffad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923126909996:android:e0a3ca2535064c0dbb9589",
+        "android_client_info": {
+          "package_name": "com.example.starwars_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923126909996-p08tmslf890m53gvl0nu0cvd5jjamcc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.starwars_app",
+            "certificate_hash": "07e99797012cbd276d0c3273e1b314d0ab8200e2"
+          }
+        },
+        {
+          "client_id": "923126909996-5bh4qc9ieqltplptha9s951qra7r7vpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNtM7Io1cBkZZi0hYKuaW_uRKDOJj6uJQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923126909996-5bh4qc9ieqltplptha9s951qra7r7vpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
